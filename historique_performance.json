@@ -1,0 +1,31 @@
+{
+    "trades": [],
+    "pnl_quotidien": {},
+    "taux_reussite": 0,
+    "profit_total": 0,
+    "frais_total": 0,
+    "meilleur_trade": {
+        "symbole": "",
+        "profit": 0
+    },
+    "pire_trade": {
+        "symbole": "",
+        "profit": 0
+    },
+    "nombre_trades": {
+        "total": 0,
+        "gagnants": 0,
+        "perdants": 0
+    },
+    "series_gagnantes": {
+        "max": 0,
+        "actuelle": 0
+    },
+    "series_perdantes": {
+        "max": 0,
+        "actuelle": 0
+    },
+    "roi": -3.33570876,
+    "sharpe_ratio": 0,
+    "drawdown_max": 0
+}
