@@ -1,50 +1,54 @@
 /* ====== Global Variables ====== */
 :root {
-    /* Updated Color Palette - Plus vibrantes et contrastées */
-    --primary-color: #6c5ce7;
-    --primary-light: #a29bfe;
-    --primary-dark: #5641d9;
-    --secondary-color: #ff9f43;
-    --success-color: #00b894;
-    --danger-color: #ff6b6b;
-    --warning-color: #fdcb6e;
-    --info-color: #0abde3;
-    
-    /* Dark Theme Colors - Plus profonds et contrastés */
-    --dark-bg: #10152d;
-    --dark-card-bg: #1a2140;
-    --dark-text: #c8ccdf;
-    --dark-heading: #f5f7ff;
-    --dark-border: #2a3456;
-    
+    /* Updated Color Palette - Modernized */
+    --primary-color: #7057ff; /* Vibrant Blue/Purple */
+    --primary-light: #8c78ff;
+    --primary-dark: #5d44e0;
+    --secondary-color: #ff8c00; /* Bright Orange */
+    --success-color: #00c853; /* Bright Green */
+    --danger-color: #ff3d00; /* Bright Red */
+    --warning-color: #ffab00; /* Bright Yellow/Orange */
+    --info-color: #00b0ff; /* Bright Cyan/Blue */
+
+    /* Dark Theme Colors - Modern & Softer */
+    --dark-bg: #181a1f; /* Very dark, slightly desaturated blue/gray */
+    --dark-card-bg: #22252c; /* Dark gray, slightly lighter than bg */
+    --dark-text: #adb5bd; /* Light gray for readability */
+    --dark-heading: #e9ecef; /* Off-white for headings */
+    --dark-border: #343a40; /* Muted border color */
+
     /* Light Theme Colors - Plus vives et contrastées */
-    --light-bg: #f4f6fc;
+    --light-bg: #f8f9fa;
     --light-card-bg: #ffffff;
-    --light-text: #4c5579;
-    --light-heading: #2d325a;
-    --light-border: #e4e8f5;
-    
-    /* Animation et transitions améliorées */
-    --transition-bounce: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
-    --transition-elastic: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-    
+    --light-text: #495057;
+    --light-heading: #212529;
+    --light-border: #dee2e6;
+
+    /* Standardized Transitions */
+    --transition-normal: all 0.3s ease-in-out;
+    --transition-fast: all 0.2s ease-in-out;
+    /* Removed --transition-bounce and --transition-elastic for now, can be re-added if specific bouncy/elastic effects are needed */
+
     /* Current Theme Colors (default to dark) */
     --background: var(--dark-bg);
     --card-bg: var(--dark-card-bg);
     --text-color: var(--dark-text);
     --heading-color: var(--dark-heading);
     --border-color: var(--dark-border);
-    
+
     /* Dimensions */
     --sidebar-width: 260px;
-    --card-border-radius: 12px;
-    --btn-border-radius: 8px;
-    
-    /* Shadows */
-    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    --shadow-glow: 0 0 15px rgba(115, 103, 240, 0.5);
+    --card-border-radius: 10px; /* Slightly adjusted */
+    --btn-border-radius: 6px; /* Slightly adjusted */
+
+    /* Shadows - More subtle for dark theme */
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.15);
+    --shadow-md: 0 5px 15px rgba(0, 0, 0, 0.2);
+    --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.25);
+    --shadow-glow: 0 0 20px rgba(112, 87, 255, 0.3); /* Hardcoded primary color RGB for var() fallback */
+    --primary-color-rgb: 112, 87, 255; /* Define RGB components for use in rgba() */
+    --danger-color-rgb: 255, 61, 0;
+    --text-color-rgb: 173,181,189;
 }
 
 /* ====== General Styles ====== */
@@ -58,151 +62,119 @@ body {
     font-family: 'Poppins', sans-serif;
     background-color: var(--background);
     color: var(--text-color);
-    font-size: 14px;
-    line-height: 1.6;
+    font-size: 15px; /* Slightly larger base font size */
+    line-height: 1.65; /* Adjusted line height for readability */
     min-height: 100vh;
     overflow-x: hidden;
-    transition: var(--transition-normal);
+    transition: background-color var(--transition-normal), color var(--transition-normal);
 }
 
 h1, h2, h3, h4, h5, h6 {
     color: var(--heading-color);
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    transition: var(--transition-normal);
+    font-weight: 600; /* Consistent heading weight */
+    margin-bottom: 0.75rem; /* Standardized margin */
+    transition: color var(--transition-normal); /* Added transition */
 }
 
 a {
     color: var(--primary-color);
     text-decoration: none;
-    transition: var(--transition-fast);
+    transition: color var(--transition-fast), transform var(--transition-fast); /* Added transform transition */
 }
 
 a:hover {
     color: var(--primary-light);
-    transform: translateY(-1px);
+    transform: translateY(-1px); /* Keep subtle hover effect */
 }
 
 .btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 0.5rem 1rem;
+    padding: 0.6rem 1.2rem; /* Consistent padding */
     border-radius: var(--btn-border-radius);
     font-weight: 500;
     cursor: pointer;
-    transition: var(--transition-bounce);
+    transition: background-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
     border: none;
     outline: none;
     gap: 0.5rem;
-    font-size: 0.9rem;
+    font-size: 0.95rem; /* Consistent font size */
     position: relative;
-    overflow: hidden;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    z-index: 1;
+    /* Removed z-index and overflow:hidden, not needed for simplified style */
+    /* Simplified box-shadow */
+    box-shadow: var(--shadow-sm); /* Use defined shadow */
 }
 
-.btn::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
-    top: 0;
-    left: 0;
-    opacity: 0;
-    z-index: -1;
-    transition: opacity 0.3s ease;
-}
+/* Removed .btn::before and .btn::after for ripple/gradient effects */
 
-.btn:hover::before {
-    opacity: 1;
+.btn:hover {
+    /* Simple background change or subtle shadow increase */
+    background-color: var(--primary-dark); /* Example for primary button */
+    box-shadow: var(--shadow-md); /* Use defined shadow */
+    transform: translateY(-1px);
 }
 
 .btn:active {
-    transform: translateY(2px);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transform: translateY(1px); /* Simpler active state */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15); /* Simplified active shadow */
 }
 
-.btn::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    background-color: rgba(255, 255, 255, 0.2);
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    transition: width 0.5s, height 0.5s;
-}
-
-.btn:active::after {
-    width: 300px;
-    height: 300px;
-    opacity: 0;
-}
 
 .btn-sm {
-    padding: 0.25rem 0.75rem;
-    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem; /* Adjusted padding */
+    font-size: 0.85rem; /* Adjusted font size */
 }
 
 .btn-success {
     background-color: var(--success-color);
-    color: white;
-    box-shadow: 0 2px 4px rgba(40, 199, 111, 0.3);
+    color: #fff; /* Ensure contrast */
 }
-
 .btn-success:hover {
-    background-color: #24b263;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(40, 199, 111, 0.4);
+    background-color: #00a043; /* Darken success color on hover */
 }
 
 .btn-danger {
     background-color: var(--danger-color);
-    color: white;
-    box-shadow: 0 2px 4px rgba(234, 84, 85, 0.3);
+    color: #fff; /* Ensure contrast */
 }
-
 .btn-danger:hover {
-    background-color: #d64c4d;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(234, 84, 85, 0.4);
+    background-color: #e02b00; /* Darken danger color on hover */
 }
 
 .btn:disabled {
-    opacity: 0.6;
+    opacity: 0.5; /* Standard disabled opacity */
     cursor: not-allowed;
-    transform: none !important;
-    box-shadow: none !important;
+    transform: none !important; /* Remove hover/active transforms */
+    box-shadow: none !important; /* Remove shadow when disabled */
 }
 
 /* ====== Layout Styles ====== */
 .app-container {
     display: flex;
     width: 100%;
-    height: 100vh;
-    overflow: hidden;
+    height: 100vh; /* Full viewport height */
+    overflow: hidden; /* Prevent body scrollbars when sidebar is fixed */
 }
 
 /* ====== Sidebar Styles ====== */
 .sidebar {
     width: var(--sidebar-width);
     height: 100vh;
-    background-color: var(--card-bg);
+    background-color: var(--card-bg); /* Use card-bg for sidebar */
     border-right: 1px solid var(--border-color);
     display: flex;
     flex-direction: column;
-    position: fixed;
-    z-index: 10;
-    transition: var(--transition-normal);
-    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+    position: fixed; /* Fixed position */
+    top: 0; /* Align to top */
+    left: 0; /* Align to left */
+    z-index: 100; /* Ensure sidebar is above other content */
+    transition: width var(--transition-normal), background-color var(--transition-normal); /* Smooth transitions */
+    box-shadow: 3px 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
 .sidebar-header {
-    padding: 1.5rem;
+    padding: 1.5rem; /* Consistent padding */
     display: flex;
     align-items: center;
     gap: 1rem;
@@ -210,38 +182,40 @@ a:hover {
 }
 
 .sidebar-header h2 {
-    font-size: 1.3rem;
+    font-size: 1.4rem; /* Slightly larger title */
     margin-bottom: 0;
     white-space: nowrap;
-    background: linear-gradient(45deg, var(--primary-color), var(--primary-light));
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
+    color: var(--heading-color); /* Use heading color */
     font-weight: 700;
 }
 
 .logo {
     height: 35px;
     width: 35px;
-    filter: drop-shadow(0 0 3px rgba(115, 103, 240, 0.5));
-    transition: var(--transition-normal);
+    /* Optional: Add a subtle filter for dark theme if needed */
+    /* filter: brightness(0.9) contrast(1.1); */
+    transition: transform var(--transition-normal);
 }
+.logo:hover {
+    transform: scale(1.1);
+}
+
 
 .sidebar-menu {
     list-style: none;
     padding: 1rem 0;
     flex-grow: 1;
+    overflow-y: auto; /* Allow scrolling for menu items if needed */
 }
 
 .sidebar-menu li {
-    padding: 0.8rem 1.5rem;
+    padding: 0.9rem 1.5rem; /* Adjusted padding */
     position: relative;
-    transition: var(--transition-fast);
+    transition: background-color var(--transition-fast);
 }
 
 .sidebar-menu li.active {
-    background-color: rgba(115, 103, 240, 0.15);
+    background-color: rgba(var(--primary-color-rgb), 0.15); /* Use primary color with opacity */
 }
 
 .sidebar-menu li.active::before {
@@ -252,92 +226,79 @@ a:hover {
     height: 100%;
     width: 4px;
     background-color: var(--primary-color);
-    box-shadow: 0 0 8px var(--primary-color);
+    box-shadow: 0 0 8px rgba(var(--primary-color-rgb), 0.5);
 }
 
 .sidebar-menu li a {
     display: flex;
     align-items: center;
-    gap: 0.8rem;
+    gap: 0.9rem; /* Adjusted gap */
     color: var(--text-color);
     font-weight: 500;
-    transition: var(--transition-fast);
+    transition: color var(--transition-fast), transform var(--transition-fast);
 }
 
 .sidebar-menu li a i {
     font-size: 1.2rem;
     width: 1.5rem;
     text-align: center;
-    transition: var(--transition-fast);
+    transition: color var(--transition-fast), transform var(--transition-fast);
 }
 
 .sidebar-menu li:hover:not(.active) {
-    background-color: rgba(115, 103, 240, 0.05);
+    background-color: rgba(var(--primary-color-rgb), 0.08);
 }
 
-.sidebar-menu li:hover:not(.active) a i {
-    transform: translateX(3px);
+.sidebar-menu li:hover:not(.active) a {
     color: var(--primary-light);
+}
+.sidebar-menu li:hover:not(.active) a i {
+    transform: scale(1.1); /* Subtle icon scale on hover */
 }
 
 .sidebar-menu li.active a {
     color: var(--primary-color);
+    font-weight: 600; /* Emphasize active link */
 }
 
 .bot-status {
-    padding: 1rem 1.5rem;
+    padding: 1.2rem 1.5rem; /* Adjusted padding */
     display: flex;
     align-items: center;
     gap: 0.8rem;
     border-top: 1px solid var(--border-color);
-    border-bottom: 1px solid var(--border-color);
+    /* border-bottom: 1px solid var(--border-color); */ /* Often not needed if footer follows */
 }
 
 .status-indicator {
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    background-color: var(--danger-color);
+    background-color: var(--danger-color); /* Default to danger */
     position: relative;
-    box-shadow: 0 0 5px var(--danger-color);
-    transition: var(--transition-elastic);
+    box-shadow: 0 0 8px var(--danger-color); /* Dynamic shadow based on status */
+    transition: background-color var(--transition-normal), box-shadow var(--transition-normal);
 }
 
-.status-indicator::after {
-    box-shadow: 0 0 15px currentColor;
-    animation: pulse-status 2.5s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
-}
-
-@keyframes pulse-status {
-    0% {
-        transform: scale(1);
-        opacity: 0.6;
-    }
-    50% {
-        transform: scale(2.5);
-        opacity: 0;
-    }
-    100% {
-        transform: scale(1);
-        opacity: 0;
-    }
-}
+/* Removed ::after for pulse, can be added back if needed */
 
 .sidebar-footer {
-    padding: 1rem 1.5rem;
+    padding: 1.2rem 1.5rem; /* Adjusted padding */
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
+    border-top: 1px solid var(--border-color); /* Ensure separation */
+    margin-top: auto; /* Push footer to bottom */
 }
 
 /* ====== Main Content Styles ====== */
 .main-content {
     flex: 1;
     margin-left: var(--sidebar-width);
-    padding: 1.5rem;
-    overflow-y: auto;
-    height: 100vh;
-    transition: var(--transition-normal);
+    padding: 2rem; /* Increased padding */
+    overflow-y: auto; /* Allow content to scroll */
+    height: 100vh; /* Full viewport height */
+    transition: margin-left var(--transition-normal), padding var(--transition-normal);
 }
 
 /* ====== Top Bar Styles ====== */
@@ -346,10 +307,9 @@ a:hover {
     justify-content: space-between;
     align-items: center;
     padding-bottom: 1.5rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem; /* Increased margin */
     border-bottom: 1px solid var(--border-color);
-    transition: var(--transition-normal);
-    gap: 1rem;
+    gap: 1.5rem; /* Increased gap */
     flex-wrap: wrap;
 }
 
@@ -357,7 +317,6 @@ a:hover {
     display: flex;
     align-items: baseline;
     gap: 0.5rem;
-    transition: var(--transition-normal);
 }
 
 .balance-label {
@@ -366,20 +325,20 @@ a:hover {
 }
 
 .balance-value {
-    font-size: 1.5rem;
-    font-weight: 600;
+    font-size: 1.6rem; /* Slightly larger */
+    font-weight: 700; /* Bolder */
     color: var(--heading-color);
-    transition: var(--transition-fast);
 }
 
 .balance-currency {
     font-size: 1rem;
     color: var(--text-color);
+    opacity: 0.8; /* Slightly muted */
 }
 
 .performance-metrics {
     display: flex;
-    gap: 1.5rem;
+    gap: 2rem; /* Increased gap */
     flex-wrap: wrap;
 }
 
@@ -388,32 +347,30 @@ a:hover {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    min-width: 80px;
-    transition: var(--transition-normal);
+    min-width: 90px; /* Adjusted min-width */
 }
 
 .metric i {
-    font-size: 1.2rem;
-    margin-bottom: 0.2rem;
+    font-size: 1.3rem; /* Slightly larger icon */
+    margin-bottom: 0.3rem;
     color: var(--primary-color);
-    transition: var(--transition-fast);
+    transition: transform var(--transition-fast);
 }
 
 .metric span {
-    font-size: 1.1rem;
+    font-size: 1.2rem; /* Slightly larger value */
     font-weight: 600;
-    margin-right: 0.2rem;
     color: var(--heading-color);
-    transition: var(--transition-fast);
 }
 
 .metric small {
-    font-size: 0.8rem;
+    font-size: 0.85rem; /* Slightly larger label */
     color: var(--text-color);
+    opacity: 0.9;
 }
 
 .metric:hover i {
-    transform: scale(1.1);
+    transform: scale(1.15); /* More pronounced hover */
 }
 
 .user-controls {
@@ -422,78 +379,44 @@ a:hover {
     gap: 1rem;
 }
 
-.refresh-btn {
+.refresh-btn, .theme-toggle { /* Combined common styles */
     background: none;
     border: none;
     color: var(--text-color);
     cursor: pointer;
-    font-size: 1.2rem;
+    font-size: 1.3rem; /* Larger icons */
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: var(--transition-fast);
-    width: 36px;
-    height: 36px;
+    transition: color var(--transition-fast), transform var(--transition-fast), background-color var(--transition-fast);
+    width: 40px; /* Larger clickable area */
+    height: 40px;
     border-radius: 50%;
 }
 
+.refresh-btn:hover, .theme-toggle:hover {
+    color: var(--primary-color);
+    background-color: rgba(var(--primary-color-rgb, 112, 87, 255), 0.1);
+}
 .refresh-btn:hover {
-    color: var(--primary-color);
-    transform: rotate(30deg);
-    background-color: rgba(115, 103, 240, 0.1);
+    transform: rotate(45deg);
 }
 
-.theme-toggle {
-    cursor: pointer;
-    font-size: 1.2rem;
-    color: var(--text-color);
-    transition: var(--transition-fast);
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.theme-toggle:hover {
-    color: var(--primary-color);
-    background-color: rgba(115, 103, 240, 0.1);
-}
 
 /* ====== System Status Styles ====== */
-.system-status {
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-    padding: 0.5rem 1rem;
-    background-color: rgba(0, 0, 0, 0.1);
-    border-radius: var(--btn-border-radius);
-    border: 1px solid var(--border-color);
-}
+/* This can be removed if not actively used or integrated elsewhere */
 
-.status-item {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.8rem;
-    color: var(--text-color);
-}
-
-.status-label {
-    opacity: 0.8;
-}
 
 /* ====== Section Styles ====== */
 .section {
     display: none;
-    animation: fadeIn 0.3s ease;
+    animation: fadeIn 0.4s ease-out; /* Slightly longer fade */
 }
 
 @keyframes fadeIn {
     from {
         opacity: 0;
-        transform: translateY(10px);
+        transform: translateY(15px); /* Slightly more pronounced entry */
     }
     to {
         opacity: 1;
@@ -509,29 +432,31 @@ a:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem; /* Increased margin */
 }
 
 .section-header h2 {
-    font-size: 1.5rem;
+    font-size: 1.8rem; /* Larger section titles */
     margin-bottom: 0;
     position: relative;
+    padding-bottom: 0.5rem; /* Space for underline */
 }
 
 .section-header h2::after {
     content: '';
     position: absolute;
     left: 0;
-    bottom: -5px;
-    height: 2px;
-    width: 40px;
-    background: linear-gradient(90deg, var(--primary-color), transparent);
+    bottom: 0; /* Underline directly below text */
+    height: 3px; /* Thicker underline */
+    width: 50px; /* Longer underline */
+    background: var(--primary-color); /* Solid primary color */
     border-radius: 2px;
 }
 
 .last-update {
     font-size: 0.9rem;
     color: var(--text-color);
+    opacity: 0.8;
 }
 
 /* ====== Card Styles ====== */
@@ -539,254 +464,299 @@ a:hover {
     background-color: var(--card-bg);
     border-radius: var(--card-border-radius);
     border: 1px solid var(--border-color);
-    margin-bottom: 1.5rem;
-    box-shadow: var(--shadow-md);
-    overflow: hidden;
-    transition: var(--transition-bounce);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.16);
-    position: relative;
+    margin-bottom: 2rem; /* Standardized margin */
+    box-shadow: var(--shadow-md); /* Use defined shadow */
+    overflow: hidden; /* Keep for border-radius */
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+    /* backdrop-filter: blur(5px); */ /* Soften or remove blur */
+    /* Removed position:relative and card::before for gradient overlay */
 }
 
-.card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0) 100%);
-    pointer-events: none;
-    z-index: 1;
-}
 
 .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    transform: translateY(-4px); /* Slightly less movement */
+    box-shadow: var(--shadow-lg); /* Use defined larger shadow */
 }
 
 .card-header {
-    padding: 1.2rem 1.5rem;
+    padding: 1.2rem 1.5rem; /* Consistent padding */
     border-bottom: 1px solid var(--border-color);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.05);
+    /* background-color: rgba(0,0,0,0.03); */ /* Optional subtle header background */
 }
 
 .card-header h3 {
-    font-size: 1.1rem;
+    font-size: 1.2rem; /* Larger card titles */
     margin-bottom: 0;
+    font-weight: 600;
 }
 
 .card-body {
-    padding: 1.5rem;
+    padding: 1.5rem; /* Consistent padding */
 }
 
 .view-all {
     font-size: 0.9rem;
-    padding: 0.3rem 0.6rem;
-    border-radius: 4px;
-    transition: var(--transition-fast);
+    padding: 0.4rem 0.8rem; /* Adjusted padding */
+    border-radius: var(--btn-border-radius); /* Use button border radius */
+    transition: background-color var(--transition-fast), color var(--transition-fast);
 }
 
 .view-all:hover {
-    background-color: rgba(115, 103, 240, 0.1);
+    background-color: rgba(var(--primary-color-rgb, 112, 87, 255), 0.1);
+    color: var(--primary-light);
 }
 
 /* ====== Dashboard Cards Layout ====== */
 .dashboard-cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
-    margin-bottom: 1.5rem;
+    gap: 2rem; /* Increased gap */
+    margin-bottom: 2rem; /* Increased margin */
 }
 
-/* ====== Summary Card Styles ====== */
-.summary-item {
+/* ====== Portfolio Summary Card Styles (.summary-card is the parent) ====== */
+.summary-card .summary-item {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 1rem;
-    transition: var(--transition-fast);
-    padding: 0.5rem;
-    border-radius: 6px;
+    align-items: center;
+    margin-bottom: 1.2rem; /* Increased spacing between items */
+    padding: 0.8rem 0.2rem; /* Adjusted padding */
+    border-radius: var(--btn-border-radius);
+    transition: background-color var(--transition-fast);
 }
 
-.summary-item:hover {
-    background-color: rgba(115, 103, 240, 0.05);
+.summary-card .summary-item:hover {
+    background-color: rgba(var(--primary-color-rgb), 0.05);
 }
 
-.summary-item .label {
+.summary-card .summary-item .label {
     color: var(--text-color);
+    font-size: 0.95rem;
+    opacity: 0.85; /* Slightly muted label */
 }
 
-.summary-item .value {
-    font-weight: 600;
+.summary-card .summary-item .value {
+    font-weight: 700; /* Bolder value */
     color: var(--heading-color);
+    font-size: 1.1rem; /* Larger value */
 }
 
 .summary-chart {
-    height: 180px;
-    margin-top: 1.5rem;
+    height: 200px;
+    margin-top: 2rem; /* More margin above chart */
+    margin-bottom: 0.5rem; /* Space below chart */
 }
 
-/* ====== Metrics Grid Styles ====== */
-.metrics-grid {
+
+/* ====== Trading Performance Card Styles (.performance-card is the parent) ====== */
+.performance-card .metrics-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-    gap: 1.2rem;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); /* Slightly wider items */
+    gap: 1.5rem;
 }
 
-.metric-item {
+.performance-card .metric-item {
     display: flex;
     flex-direction: column;
-    background-color: rgba(115, 103, 240, 0.1);
-    padding: 1rem;
-    border-radius: 8px;
-    transition: var(--transition-fast);
-    border: 1px solid transparent;
+    align-items: center;
+    text-align: center;
+    background-color: rgba(var(--primary-color-rgb), 0.05); /* More subtle background */
+    padding: 1.3rem; /* Increased padding */
+    border-radius: var(--card-border-radius); /* Use card radius for consistency */
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast), background-color var(--transition-fast);
+    border: 1px solid var(--dark-border); /* Add a subtle border */
 }
 
-.metric-item:hover {
-    border-color: var(--primary-color);
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-sm);
+.performance-card .metric-item:hover {
+    background-color: rgba(var(--primary-color-rgb), 0.1); /* Darken on hover */
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md); /* Lift effect */
 }
 
-.metric-item .label {
-    font-size: 0.8rem;
+.performance-card .metric-item .label {
+    font-size: 0.9rem; /* Larger label */
     color: var(--text-color);
-    margin-bottom: 0.3rem;
+    margin-bottom: 0.5rem; /* More space below label */
+    opacity: 0.9;
+    font-weight: 500;
 }
 
-.metric-item .value {
-    font-size: 1.1rem;
-    font-weight: 600;
+.performance-card .metric-item .value {
+    font-size: 1.35rem; /* Larger value */
+    font-weight: 700; /* Bolder value */
     color: var(--heading-color);
 }
+.performance-card .metric-item .value#performanceWinRate,
+.performance-card .metric-item .value#maxDrawdown {
+    font-size: 1.25rem; /* Slightly smaller if % symbol makes it too large */
+}
+
 
 /* ====== Table Styles ====== */
 .table-responsive {
     overflow-x: auto;
     border-radius: var(--card-border-radius);
+    margin-bottom: 1rem; /* Space below table */
 }
 
 .data-table {
     width: 100%;
-    border-collapse: collapse;
-    border-radius: var(--card-border-radius);
-    overflow: hidden;
-    border-spacing: 0;
+    border-collapse: collapse; /* Standard */
+    /* border-radius: var(--card-border-radius); */ /* Often applied to container */
+    /* overflow: hidden; */ /* Often applied to container */
+    border-spacing: 0; /* Standard */
 }
 
 .data-table th {
-    padding: 1.2rem 1rem;
+    padding: 1rem 1.2rem; /* Adjusted padding */
     font-weight: 600;
     letter-spacing: 0.5px;
     text-transform: uppercase;
-    font-size: 0.8rem;
-    color: var(--primary-color);
-    background-color: rgba(108, 92, 231, 0.08);
-    position: sticky;
-    top: 0;
-    z-index: 10;
+    font-size: 0.85rem; /* Slightly larger */
+    color: var(--primary-light); /* Lighter for dark theme header */
+    background-color: rgba(var(--primary-color-rgb), 0.12); /* Slightly more distinct header */
+    text-align: left; /* Standard alignment */
 }
+
+/* Specific alignments & widths for Active Positions Table */
+#activePositionsTable th.cell-numerical,
+#activePositionsTable td.cell-numerical {
+    text-align: right;
+}
+
+#activePositionsTable th.cell-symbol,
+#activePositionsTable td.cell-symbol,
+#activePositionsTable th.cell-direction,
+#activePositionsTable td.cell-direction,
+#activePositionsTable th.cell-time,
+#activePositionsTable td.cell-time {
+    text-align: left;
+}
+#activePositionsTable th.cell-actions,
+#activePositionsTable td.cell-actions {
+    text-align: center;
+}
+
+#activePositionsTable .cell-symbol { min-width: 120px; }
+#activePositionsTable .cell-pnl { min-width: 100px; }
+#activePositionsTable td.cell-pnl { font-weight: 700; } /* Bolder PnL values */
+#activePositionsTable .cell-actions { min-width: 90px; }
+
 
 .data-table td {
-    padding: 1rem;
+    padding: 0.9rem 1.1rem; /* Slightly adjusted base padding */
     vertical-align: middle;
     border-top: 1px solid var(--border-color);
-    transition: var(--transition-normal);
+    transition: background-color var(--transition-fast);
 }
 
-.data-table tr {
-    transition: var(--transition-fast);
+.data-table tbody tr:hover td {
+    background-color: rgba(var(--primary-color-rgb), 0.06); /* Slightly darker hover */
 }
 
-.data-table tr:hover td {
-    background-color: rgba(108, 92, 231, 0.05);
+.data-table .symbol-text {
+    font-weight: 600;
+    color: var(--heading-color);
+}
+
+/* PnL cell specific styling for Active Positions Table is combined above with .cell-pnl */
+
+
+.data-table .no-data td.cell-align-center {
+    text-align: center;
 }
 
 .data-table .no-data td {
     text-align: center;
     color: var(--text-color);
     opacity: 0.7;
-    padding: 2rem 1rem;
+    padding: 2.5rem 1rem; /* Increased padding */
     font-style: italic;
 }
+
 
 /* ====== Portfolio Section Styles ====== */
 .portfolio-overview {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
-    margin-bottom: 1.5rem;
+    gap: 2rem; /* Increased gap */
+    margin-bottom: 2rem; /* Increased margin */
 }
 
 /* ====== Market Section Styles ====== */
 .market-trends, .market-signals {
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem; /* Increased margin */
 }
 
 /* ====== Trade History Section Styles ====== */
 .filters {
     display: flex;
-    gap: 1rem;
+    gap: 1rem; /* Standard gap */
+    margin-bottom: 1.5rem; /* Space below filters */
+}
+
+.filters select, .filters input[type="date"] { /* Style date inputs similarly */
+    padding: 0.6rem 1rem; /* Consistent padding */
+    border-radius: var(--btn-border-radius); /* Consistent radius */
+    border: 1px solid var(--border-color);
+    background-color: var(--card-bg); /* Use card background */
+    color: var(--text-color);
+    font-size: 0.9rem;
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+    cursor: pointer;
 }
 
 .filters select {
-    padding: 0.5rem 1rem;
-    border-radius: 6px;
-    border: 1px solid var(--border-color);
-    background-color: var(--card-bg);
-    color: var(--text-color);
-    font-size: 0.9rem;
-    transition: var(--transition-fast);
-    cursor: pointer;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23b4b7bd' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23adb5bd' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e"); /* Updated stroke color */
     background-repeat: no-repeat;
-    background-position: right 0.7rem center;
+    background-position: right 0.8rem center; /* Adjusted position */
     background-size: 1em;
-    padding-right: 2.5rem;
+    padding-right: 2.8rem; /* Adjusted padding for icon */
 }
 
-.filters select:hover, .filters select:focus {
+.filters select:hover, .filters select:focus,
+.filters input[type="date"]:hover, .filters input[type="date"]:focus {
     border-color: var(--primary-color);
     outline: none;
-    box-shadow: 0 0 0 3px rgba(115, 103, 240, 0.2);
+    box-shadow: 0 0 0 3px rgba(var(--primary-color-rgb, 112, 87, 255), 0.2);
 }
 
 .trade-stats {
     display: flex;
-    gap: 2rem;
-    margin-bottom: 1.5rem;
+    gap: 1.5rem; /* Adjusted gap */
+    margin-bottom: 2rem; /* Increased margin */
     flex-wrap: wrap;
 }
 
 .stat-item {
     display: flex;
     flex-direction: column;
-    padding: 0.5rem 1rem;
-    background-color: rgba(115, 103, 240, 0.05);
-    border-radius: 6px;
-    transition: var(--transition-fast);
+    padding: 0.8rem 1.2rem; /* Adjusted padding */
+    background-color: rgba(var(--primary-color-rgb, 112, 87, 255), 0.05);
+    border-radius: var(--btn-border-radius); /* Consistent radius */
+    transition: background-color var(--transition-fast), transform var(--transition-fast);
+    text-align: center; /* Center align text */
 }
 
 .stat-item:hover {
-    background-color: rgba(115, 103, 240, 0.1);
+    background-color: rgba(var(--primary-color-rgb, 112, 87, 255), 0.1);
     transform: translateY(-2px);
 }
 
 .stat-item .label {
-    font-size: 0.8rem;
+    font-size: 0.85rem; /* Slightly larger */
     color: var(--text-color);
+    opacity: 0.9;
 }
 
 .stat-item .value {
-    font-size: 1.2rem;
+    font-size: 1.3rem; /* Larger value */
     font-weight: 600;
     color: var(--heading-color);
 }
@@ -795,46 +765,49 @@ a:hover {
 .settings-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
-    margin-bottom: 1.5rem;
+    gap: 2rem; /* Increased gap */
+    margin-bottom: 2rem; /* Increased margin */
 }
 
 .settings-form {
     display: flex;
     flex-direction: column;
-    gap: 1.2rem;
+    gap: 1.5rem; /* Increased gap */
 }
 
 .form-group {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.6rem; /* Adjusted gap */
 }
 
 .form-group label {
-    font-size: 0.9rem;
+    font-size: 0.95rem; /* Slightly larger */
     font-weight: 500;
+    color: var(--heading-color); /* Use heading color for labels */
 }
 
 .form-group input, .form-group select {
-    padding: 0.8rem 1rem;
-    border-radius: 6px;
+    padding: 0.8rem 1rem; /* Consistent padding */
+    border-radius: var(--btn-border-radius); /* Consistent radius */
     border: 1px solid var(--border-color);
-    background-color: var(--card-bg);
+    background-color: var(--dark-bg); /* Slightly different bg for inputs */
     color: var(--text-color);
     font-family: inherit;
-    transition: var(--transition-fast);
+    font-size: 0.95rem; /* Match label size */
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 .form-group input:focus, .form-group select:focus {
     border-color: var(--primary-color);
     outline: none;
-    box-shadow: 0 0 0 3px rgba(115, 103, 240, 0.2);
+    box-shadow: 0 0 0 3px rgba(var(--primary-color-rgb, 112, 87, 255), 0.25);
 }
 
 .form-group input:disabled {
-    opacity: 0.7;
+    opacity: 0.6; /* Standard disabled opacity */
     cursor: not-allowed;
+    background-color: var(--dark-border); /* Darker bg for disabled */
 }
 
 .form-group.checkbox-group {
@@ -846,12 +819,18 @@ a:hover {
 .form-group.checkbox-group input[type="checkbox"] {
     width: 18px;
     height: 18px;
-    accent-color: var(--primary-color);
+    accent-color: var(--primary-color); /* Use primary color for checkbox */
+    cursor: pointer;
 }
+.form-group.checkbox-group label {
+    color: var(--text-color); /* Regular text color for checkbox label */
+    font-weight: 400;
+}
+
 
 .pairs-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); /* Adjusted minmax */
     gap: 1rem;
 }
 
@@ -859,55 +838,58 @@ a:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 1rem;
+    justify-content: center; /* Center content */
+    padding: 1.2rem; /* Increased padding */
     border: 1px solid var(--border-color);
-    border-radius: 8px;
+    border-radius: var(--btn-border-radius); /* Consistent radius */
     text-align: center;
-    transition: var(--transition-fast);
+    transition: border-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+    background-color: var(--dark-card-bg); /* Ensure it has card background */
 }
 
 .pair-item:hover {
     border-color: var(--primary-color);
     transform: translateY(-3px);
-    box-shadow: var(--shadow-md);
+    box-shadow: var(--shadow-sm);
 }
 
 .pair-item .symbol {
     font-weight: 600;
+    color: var(--heading-color); /* Use heading color */
     margin-bottom: 0.5rem;
 }
 
 .pair-item .score {
     font-size: 0.9rem;
-    color: var(--primary-color);
+    color: var(--primary-light); /* Lighter primary for score */
 }
 
-/* ====== Toast Notifications améliorées ====== */
+/* ====== Toast Notifications ====== */
 .toast-container {
     position: fixed;
     top: 20px;
     right: 20px;
-    z-index: 1000;
+    z-index: 1050; /* Ensure toasts are above most other elements */
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    max-width: 350px;
+    gap: 10px; /* Spacing between toasts */
+    max-width: 380px; /* Slightly wider */
 }
 
 .toast {
     display: flex;
-    align-items: stretch;
-    background-color: var(--card-bg);
-    border-radius: 8px;
-    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.25);
+    align-items: stretch; /* Ensure icon and content align height */
+    background-color: var(--dark-card-bg); /* Use a darker card bg for toasts */
+    border-radius: var(--btn-border-radius); /* Consistent radius */
+    box-shadow: var(--shadow-lg); /* Prominent shadow */
     overflow: hidden;
     opacity: 0;
-    transform: translateX(100%);
-    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    transform: translateX(110%); /* Start further off-screen */
+    transition: all 0.4s cubic-bezier(0.215, 0.610, 0.355, 1); /* Smoother transition */
     width: 100%;
-    min-width: 280px;
-    max-width: 350px;
+    min-width: 300px; /* Adjusted min-width */
     position: relative;
+    border-left: 4px solid transparent; /* For type indication */
 }
 
 .toast.show {
@@ -917,8 +899,14 @@ a:hover {
 
 .toast.hiding {
     opacity: 0;
-    transform: translateX(100%);
+    transform: translateX(110%);
 }
+
+.toast.success { border-left-color: var(--success-color); }
+.toast.error   { border-left-color: var(--danger-color); }
+.toast.info    { border-left-color: var(--info-color); }
+.toast.warning { border-left-color: var(--warning-color); }
+
 
 .toast-icon {
     display: flex;
@@ -926,44 +914,34 @@ a:hover {
     justify-content: center;
     width: 50px;
     flex-shrink: 0;
-    color: white;
-    font-size: 1.2rem;
+    color: #fff; /* White icon color */
+    font-size: 1.3rem; /* Larger icon */
 }
+/* Icon background color is now handled by border-left of .toast.<type> */
+.toast.success .toast-icon { background-color: var(--success-color); }
+.toast.error .toast-icon   { background-color: var(--danger-color); }
+.toast.info .toast-icon    { background-color: var(--info-color); }
+.toast.warning .toast-icon { background-color: var(--warning-color); }
 
-.toast.success .toast-icon {
-    background-color: var(--success-color);
-}
-
-.toast.error .toast-icon {
-    background-color: var(--danger-color);
-}
-
-.toast.info .toast-icon {
-    background-color: var(--info-color);
-}
-
-.toast.warning .toast-icon {
-    background-color: var(--warning-color);
-}
 
 .toast-content {
-    padding: 12px 15px;
+    padding: 1rem; /* Increased padding */
     flex: 1;
     position: relative;
 }
 
 .toast-title {
     font-weight: 600;
-    margin-bottom: 0.2rem;
+    margin-bottom: 0.3rem; /* Adjusted margin */
     color: var(--heading-color);
-    font-size: 0.95rem;
+    font-size: 1rem; /* Slightly larger title */
 }
 
 .toast-message {
     color: var(--text-color);
-    font-size: 0.85rem;
-    line-height: 1.4;
-    margin-bottom: 5px;
+    font-size: 0.9rem; /* Slightly larger message */
+    line-height: 1.5; /* Adjusted line height */
+    margin-bottom: 0; /* Remove bottom margin if progress bar is used */
 }
 
 .toast-close {
@@ -971,62 +949,53 @@ a:hover {
     border: none;
     cursor: pointer;
     padding: 0;
-    width: 30px;
-    height: 30px;
+    width: 36px; /* Larger clickable area */
+    height: 36px;
     display: flex;
     align-items: center;
     justify-content: center;
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 8px; /* Adjusted position */
+    right: 8px;
     color: var(--text-color);
-    opacity: 0.6;
-    transition: opacity 0.2s ease, transform 0.2s ease;
+    opacity: 0.7; /* Slightly more visible */
+    transition: opacity var(--transition-fast), transform var(--transition-fast), background-color var(--transition-fast);
     border-radius: 50%;
 }
 
 .toast-close:hover {
     opacity: 1;
     transform: scale(1.1);
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: rgba(var(--primary-color-rgb, 112, 87, 255), 0.1);
 }
 
 .toast-progress {
     position: absolute;
     bottom: 0;
     left: 0;
-    right: 0;
-    height: 3px;
-    background-color: rgba(0, 0, 0, 0.1);
+    /* right: 0; */ /* Let width be controlled by bar */
+    height: 4px; /* Thicker progress bar */
+    /* background-color: rgba(0,0,0,0.1); */ /* Base bg not needed if bar is full width */
 }
 
 .toast-progress-bar {
     height: 100%;
-    width: 100%;
+    width: 100%; /* Will be animated by JS */
+    transition: width 0.1s linear; /* Smooth progress update */
 }
 
-.toast.success .toast-progress-bar {
-    background-color: var(--success-color);
+.toast.success .toast-progress-bar { background-color: var(--success-color); }
+.toast.error .toast-progress-bar   { background-color: var(--danger-color); }
+.toast.info .toast-progress-bar    { background-color: var(--info-color); }
+.toast.warning .toast-progress-bar { background-color: var(--warning-color); }
+
+
+/* Animation for refresh button */
+.refresh-btn.rotating i { /* Target the icon for rotation */
+    animation: rotateIcon 0.8s linear;
 }
 
-.toast.error .toast-progress-bar {
-    background-color: var(--danger-color);
-}
-
-.toast.info .toast-progress-bar {
-    background-color: var(--info-color);
-}
-
-.toast.warning .toast-progress-bar {
-    background-color: var(--warning-color);
-}
-
-/* Style de l'animation du bouton de rafraîchissement */
-.refresh-btn.rotating {
-    animation: rotate 1s linear;
-}
-
-@keyframes rotate {
+@keyframes rotateIcon {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
 }
@@ -1037,20 +1006,24 @@ a:hover {
     border-radius: 6px;
     font-weight: 600;
     text-transform: uppercase;
-    font-size: 0.7rem;
+    font-size: 0.75rem; /* Slightly larger */
     letter-spacing: 0.5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
+    color: #fff; /* White text for better contrast on gradient */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15); /* Slightly stronger shadow */
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+.direction-label:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 3px 7px rgba(0,0,0,0.2);
 }
 
+
 .direction-long {
-    background: linear-gradient(135deg, #00b894, #00cec9);
-    color: white;
+    background: linear-gradient(135deg, var(--success-color), #00a043 ); /* Use success color */
 }
 
 .direction-short {
-    background: linear-gradient(135deg, #ff6b6b, #ff7675);
-    color: white;
+    background: linear-gradient(135deg, var(--danger-color), #e02b00); /* Use danger color */
 }
 
 /* ====== Profit/Loss Styles ====== */
@@ -1066,70 +1039,53 @@ a:hover {
 
 /* ====== Elapsed Time Styles ====== */
 .elapsed-time {
-    font-size: 0.8rem;
-    opacity: 0.7;
-    margin-left: 5px;
+    font-size: 0.85rem; /* Slightly larger */
+    opacity: 0.8; /* More visible */
+    margin-left: 8px; /* Increased margin */
 }
 
 /* ====== Close Position Button Styles ====== */
 .close-position-btn {
-    padding: 0.3rem 0.5rem;
-    font-size: 0.75rem;
+    padding: 0.4rem 0.6rem; /* Adjusted padding */
+    font-size: 0.8rem; /* Slightly larger */
     white-space: nowrap;
-    opacity: 0.7;
-    transition: var(--transition-fast);
+    opacity: 0.8; /* More visible */
+    transition: opacity var(--transition-fast), background-color var(--transition-fast), color var(--transition-fast); /* Added color transition */
+    border-radius: var(--btn-border-radius); /* Consistent radius */
 }
 
 .close-position-btn:hover {
     opacity: 1;
+    background-color: rgba(var(--danger-color-rgb), 0.1); /* Subtle bg on hover */
+    color: var(--danger-color);
 }
 
 .close-position-btn i {
-    margin-right: 3px;
+    margin-right: 4px; /* Adjusted margin */
 }
 
 /* ====== Position Row Highlighting ====== */
-tr[data-symbol] {
-    position: relative;
-    overflow: hidden;
-}
+/* Removed as default table hover is now standard */
 
-tr[data-symbol]:hover {
-    background-color: rgba(115, 103, 240, 0.05);
-}
-
-tr[data-symbol]::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 3px;
-    background-color: transparent;
-    transition: var(--transition-fast);
-}
-
-tr[data-symbol]:hover::after {
-    background-color: var(--primary-color);
-}
 
 /* Symbol text highlighting */
 .symbol-text {
     font-weight: 600;
-    color: var(--primary-color);
+    color: var(--primary-light); /* Lighter primary for text */
 }
 
 /* ====== Pulse Animations ====== */
+/* These can be re-enabled if desired, ensure they use updated color variables */
 @keyframes pulse-success {
-    0% { background-color: rgba(40, 199, 111, 0); }
-    50% { background-color: rgba(40, 199, 111, 0.15); }
-    100% { background-color: rgba(40, 199, 111, 0); }
+    0% { background-color: rgba(0, 200, 83, 0); } /* Use actual RGB if var() doesn't work in rgba() for all browsers */
+    50% { background-color: rgba(0, 200, 83, 0.15); }
+    100% { background-color: rgba(0, 200, 83, 0); }
 }
 
 @keyframes pulse-danger {
-    0% { background-color: rgba(234, 84, 85, 0); }
-    50% { background-color: rgba(234, 84, 85, 0.15); }
-    100% { background-color: rgba(234, 84, 85, 0); }
+    0% { background-color: rgba(255, 61, 0, 0); }
+    50% { background-color: rgba(255, 61, 0, 0.15); }
+    100% { background-color: rgba(255, 61, 0, 0); }
 }
 
 .pulse-profit {
@@ -1141,110 +1097,119 @@ tr[data-symbol]:hover::after {
 }
 
 /* ====== Loading animation ====== */
-.loading {
-    position: relative;
-    pointer-events: none;
-}
+/* Simplified or use skeleton loading */
 
-.loading::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, 
-        transparent, 
-        rgba(255, 255, 255, 0.2), 
-        transparent);
-    animation: loading 1.5s infinite;
-}
-
-@keyframes loading {
-    0% {
-        transform: translateX(-100%);
-    }
-    100% {
-        transform: translateX(100%);
-    }
-}
 
 /* ====== Responsive Design ====== */
+/* Existing responsive styles are generally good, may need minor tweaks with new spacing */
 @media (max-width: 1024px) {
     .sidebar {
         width: 80px;
-        overflow: hidden;
+        /* overflow: hidden; */ /* Already set on .app-container or body */
     }
-    
-    .sidebar-header h2 {
-        display: none;
+    .sidebar:hover { /* Optional: expand sidebar on hover for smaller screens */
+        /* width: var(--sidebar-width); */
     }
-    
-    .sidebar-menu li a span {
-        display: none;
-    }
-    
-    .bot-status span {
-        display: none;
-    }
-    
-    .sidebar-footer {
-        padding: 1rem 0.5rem;
-    }
-    
-    .sidebar-footer button {
-        width: 100%;
-        padding: 0.5rem;
-    }
-    
+    .sidebar-header h2,
+    .sidebar-menu li a span,
+    .bot-status span,
     .sidebar-footer button span {
-        display: none;
+        display: none; /* Hide text when collapsed */
     }
-    
+    .sidebar-header .logo { margin: 0 auto; } /* Center logo */
+    .sidebar-menu li a i { margin: 0 auto; } /* Center icon */
+
     .main-content {
         margin-left: 80px;
+        padding: 1.5rem; /* Adjust padding for smaller screens */
     }
 }
 
 @media (max-width: 768px) {
+    body {
+        font-size: 14px; /* Slightly smaller base font for tablets */
+    }
     .top-bar {
         flex-direction: column;
         align-items: flex-start;
-        gap: 1rem;
+        gap: 1.2rem; /* Adjusted gap */
     }
-    
     .performance-metrics, .user-controls {
         width: 100%;
-        justify-content: space-between;
+        justify-content: space-around; /* Better spacing for metrics */
+        gap: 0.5rem; /* Reduce gap for smaller screens */
     }
-    
+     .metric {
+        min-width: 70px; /* Adjust min-width for metrics */
+    }
+    .metric span { font-size: 1.1rem; }
+    .metric i { font-size: 1.2rem; }
+
+
     .dashboard-cards, .portfolio-overview, .settings-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* Single column layout */
+        gap: 1.5rem; /* Reduce gap for single column */
     }
-    
     .metrics-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); /* Allow wrapping, smaller min */
+        gap: 1rem;
     }
-    
-    .system-status {
-        width: 100%;
-        justify-content: space-between;
-    }
+    .section-header h2 { font-size: 1.6rem; }
+    /* .system-status { width: 100%; justify-content: space-around; } */
 }
 
 @media (max-width: 480px) {
+    body {
+        font-size: 13px; /* Further reduce base font for mobile */
+    }
     .main-content {
-        padding: 1rem;
+        padding: 1rem; /* Further reduce padding */
+        margin-left: 0; /* Sidebar might be hidden or overlay */
     }
-    
-    .metrics-grid {
-        grid-template-columns: 1fr;
+    .sidebar {
+        /* Example: Hide sidebar by default, to be toggled by JS */
+        /* width: 0; */
+        /* visibility: hidden; */
+        /* For now, ensure it doesn't break layout if always 80px */
+         width: 60px; /* Even smaller fixed sidebar */
     }
-    
+     .main-content {
+        margin-left: 60px; /* Adjust if sidebar is fixed small */
+    }
+    .sidebar-header, .sidebar-menu li, .bot-status, .sidebar-footer {
+        padding: 0.8rem; /* Reduce padding in sidebar */
+    }
+     .sidebar-menu li a i { font-size: 1.1rem; }
+     .logo { height: 30px; width: 30px;}
+
+
+    .top-bar {
+        padding-bottom: 1rem;
+        margin-bottom: 1rem;
+    }
+    .performance-metrics {
+        gap: 0.8rem; /* Further reduce gap */
+        justify-content: space-between;
+    }
+    .metric { min-width: 60px; }
+    .metric span { font-size: 1rem; }
+    .metric i { font-size: 1.1rem; }
+    .metric small { font-size: 0.7rem; }
+    .user-controls { gap: 0.5rem; }
+    .refresh-btn, .theme-toggle { width: 36px; height: 36px; font-size: 1.1rem;}
+
+
+    .filters { flex-direction: column; gap: 0.8rem; } /* Stack filters on very small screens */
+    .filters select, .filters input[type="date"], .filters input[type="text"] { width: 100%; font-size: 0.85rem; padding: 0.5rem 0.8rem;}
+
     .trade-stats {
         flex-direction: column;
-        gap: 1rem;
+        gap: 0.8rem; /* Reduced gap */
     }
+    .stat-item .value { font-size: 1.1rem; }
+    .section-header h2 { font-size: 1.4rem; }
+    .card-header h3 { font-size: 1.1rem; }
+    .card-body, .summary-item, .metric-item { padding: 1rem; }
 }
 
 /* Badge de notification */
@@ -1252,30 +1217,21 @@ tr[data-symbol]:hover::after {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-width: 20px;
-    height: 20px;
-    border-radius: 10px;
+    min-width: 22px; /* Slightly larger */
+    height: 22px;
+    border-radius: 11px; /* Maintain circular */
     background-color: var(--danger-color);
-    color: white;
-    font-size: 0.7rem;
+    color: #fff;
+    font-size: 0.75rem; /* Slightly larger */
     font-weight: 600;
     margin-left: 8px;
-    padding: 0 6px;
-    box-shadow: 0 0 5px rgba(234, 84, 85, 0.5);
-    animation: pulse-badge 2s infinite;
+    padding: 0 7px; /* Adjusted padding */
+    box-shadow: 0 2px 5px rgba(var(--danger-color-rgb,255,61,0), 0.4);
+    /* animation: pulse-badge 2s infinite; */ /* Consider if pulse is too distracting */
 }
 
-@keyframes pulse-badge {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.1);
-    }
-    100% {
-        transform: scale(1);
-    }
-}
+/* Removed pulse-badge keyframes for now, can be re-added */
+
 
 /* Groupes d'entrées */
 .input-group {
@@ -1292,60 +1248,42 @@ tr[data-symbol]:hover::after {
 .input-group .btn {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
-    margin-left: -1px;
+    margin-left: -1px; /* Overlap borders */
 }
 
 /* Actions de carte */
 .card-actions {
     display: flex;
-    gap: 0.5rem;
+    gap: 0.8rem; /* Adjusted gap */
 }
 
-.refresh-positions-btn {
+.refresh-positions-btn { /* Assuming this is a button */
     background-color: transparent;
     border: 1px solid var(--border-color);
     color: var(--text-color);
-    padding: 0.3rem;
-    border-radius: 4px;
+    padding: 0.4rem 0.8rem; /* Consistent padding */
+    border-radius: var(--btn-border-radius); /* Consistent radius */
     cursor: pointer;
-    transition: var(--transition-fast);
+    transition: background-color var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast);
 }
 
 .refresh-positions-btn:hover {
-    background-color: rgba(115, 103, 240, 0.1);
+    background-color: rgba(var(--primary-color-rgb, 112, 87, 255), 0.1);
     color: var(--primary-color);
+    border-color: var(--primary-color);
 }
 
-/* Style des filtres amélioré */
-.filter-select {
-    min-width: 120px;
-}
+/* Style des filtres amélioré - Already covered above */
 
-/* Amélioration du rollover des tables */
-.data-table tbody tr {
-    position: relative;
-    cursor: pointer;
-}
+/* Amélioration du rollover des tables - Already covered by data-table tbody tr:hover td */
 
-.data-table tbody tr:hover::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    background: linear-gradient(90deg, 
-        rgba(115, 103, 240, 0.05) 0%, 
-        rgba(115, 103, 240, 0.0) 100%);
-    pointer-events: none;
-}
 
 /* Skeleton loading effect */
 .skeleton {
     position: relative;
     overflow: hidden;
-    background-color: rgba(var(--border-color-rgb, 46, 51, 86), 0.1);
-    border-radius: 4px;
+    background-color: rgba(var(--border-color-rgb, 52, 58, 64), 0.2); /* Use border color with opacity */
+    border-radius: var(--btn-border-radius); /* Consistent radius */
 }
 
 .skeleton::after {
@@ -1357,12 +1295,12 @@ tr[data-symbol]:hover::after {
     transform: translateX(-100%);
     background-image: linear-gradient(
         90deg,
-        rgba(255, 255, 255, 0) 0,
-        rgba(255, 255, 255, 0.1) 20%,
-        rgba(255, 255, 255, 0.2) 60%,
-        rgba(255, 255, 255, 0)
+        rgba(var(--text-color-rgb, 173,181,189), 0) 0,
+        rgba(var(--text-color-rgb, 173,181,189), 0.08) 30%, /* Softer shimmer */
+        rgba(var(--text-color-rgb, 173,181,189), 0.15) 60%,
+        rgba(var(--text-color-rgb, 173,181,189), 0)
     );
-    animation: shimmer 2s infinite;
+    animation: shimmer 1.8s infinite; /* Slightly faster */
     content: '';
 }
 
@@ -1374,125 +1312,38 @@ tr[data-symbol]:hover::after {
 
 /* Amélioration des animations pour les éléments qui changent */
 .animated-value {
-    transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transition: color 0.5s ease-in-out, transform 0.5s ease-in-out; /* More specific transitions */
 }
 
-/* Effet de profondeur pour les boutons */
-.btn {
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    transition: var(--transition-bounce);
-    position: relative;
-    overflow: hidden;
-    z-index: 1;
-}
+/* Effet de profondeur pour les boutons - Simplified and covered in .btn */
 
-.btn::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
-    top: 0;
-    left: 0;
-    opacity: 0;
-    z-index: -1;
-    transition: opacity 0.3s ease;
-}
 
-.btn:hover::before {
-    opacity: 1;
-}
+/* Table avec design plus moderne - Covered by .data-table styles */
 
-.btn:active {
-    transform: translateY(2px);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-}
 
-/* Table avec design plus moderne */
-.data-table {
-    border-spacing: 0;
-    width: 100%;
-}
+/* Badges avec effet scintillant - Simplified .badge style, removed pulse */
 
-.data-table th {
-    padding: 1.2rem 1rem;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    font-size: 0.8rem;
-    color: var(--primary-color);
-    background-color: rgba(108, 92, 231, 0.08);
-    position: sticky;
-    top: 0;
-    z-index: 10;
-}
-
-.data-table td {
-    padding: 1rem;
-    vertical-align: middle;
-    border-top: 1px solid var(--border-color);
-    transition: var(--transition-normal);
-}
-
-.data-table tr:hover td {
-    background-color: rgba(108, 92, 231, 0.05);
-}
-
-/* Badges avec effet scintillant */
-.badge {
-    background: linear-gradient(45deg, var(--danger-color), #ff4757);
-    box-shadow: 0 0 10px rgba(255, 107, 107, 0.7);
-    position: relative;
-    overflow: hidden;
-}
-
-.badge::after {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 70%);
-    opacity: 0;
-    transform: scale(0.5);
-    transform-origin: center;
-    animation: badge-pulse 3s infinite;
-}
-
-@keyframes badge-pulse {
-    0% {
-        transform: scale(0.5);
-        opacity: 0;
-    }
-    50% {
-        opacity: 0.5;
-    }
-    100% {
-        transform: scale(2);
-        opacity: 0;
-    }
-}
 
 /* Amélioration du scroll */
 ::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
+    width: 10px; /* Adjusted width */
+    height: 10px; /* Adjusted height for horizontal scrollbars */
 }
 
 ::-webkit-scrollbar-track {
-    background: rgba(0, 0, 0, 0.05);
-    border-radius: 10px;
+    background: var(--dark-bg); /* Match background */
+    border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: rgba(108, 92, 231, 0.5);
-    border-radius: 10px;
-    transition: var(--transition-normal);
+    background-color: var(--primary-light); /* Or a less prominent color */
+    border-radius: 5px;
+    border: 2px solid var(--dark-bg); /* Creates a nice padding effect */
+    transition: background-color var(--transition-fast);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: rgba(108, 92, 231, 0.8);
+    background-color: var(--primary-color); /* Lighter on hover */
 }
 
 /* Tooltips modernisés */
@@ -1506,42 +1357,45 @@ tr[data-symbol]:hover::after {
     visibility: hidden;
     opacity: 0;
     pointer-events: none;
-    transition: all 0.3s ease;
+    transition: opacity var(--transition-fast), transform var(--transition-fast); /* Use standard transition */
     position: absolute;
-    z-index: 1000;
+    z-index: 1010; /* Ensure above most elements */
 }
 
-[data-tooltip]::before {
+[data-tooltip]::before { /* Tooltip text bubble */
     content: attr(data-tooltip);
-    padding: 8px 12px;
-    border-radius: 6px;
-    background-color: var(--dark-card-bg);
-    color: var(--dark-text);
+    padding: 0.6rem 1rem; /* Adjusted padding */
+    border-radius: var(--btn-border-radius); /* Consistent radius */
+    background-color: var(--dark-heading); /* Use heading color for contrast */
+    color: var(--dark-bg); /* Dark text on light bubble */
     width: max-content;
-    max-width: 300px;
-    bottom: calc(100% + 10px);
+    max-width: 280px; /* Adjusted max-width */
+    bottom: calc(100% + 12px); /* Increased spacing */
     left: 50%;
-    transform: translateX(-50%);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    font-size: 0.85rem;
+    transform: translateX(-50%) translateY(5px); /* Start slightly lower for entry animation */
+    box-shadow: var(--shadow-md);
+    font-size: 0.88rem; /* Adjusted font size */
+    line-height: 1.4; /* Improved line height */
 }
 
-[data-tooltip]::after {
+[data-tooltip]::after { /* Tooltip arrow */
     content: '';
-    border: 6px solid transparent;
-    border-top-color: var(--dark-card-bg);
-    bottom: calc(100% - 6px);
+    border: 7px solid transparent; /* Slightly larger arrow */
+    border-top-color: var(--dark-heading); /* Match bubble background */
+    bottom: calc(100% - 2px); /* Position arrow correctly */
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%) translateY(5px); /* Start slightly lower */
 }
 
 [data-tooltip]:hover::before,
 [data-tooltip]:hover::after {
     visibility: visible;
     opacity: 1;
+    transform: translateX(-50%) translateY(0); /* Animate to final position */
 }
 
 /* Animation shake pour les boutons lors d'une erreur */
+/* This is fine, can be kept if used */
 @keyframes shake {
     0%, 100% { transform: translateX(0); }
     10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
@@ -1553,86 +1407,26 @@ tr[data-symbol]:hover::after {
 }
 
 /* Animation pour le spinner de chargement */
-.fa-spin {
-    animation: fa-spin 1s infinite linear;
-}
+/* .fa-spin can be kept if FontAwesome is used */
 
-@keyframes fa-spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
 
-/* Style pour les éléments en cours de chargement */
-tr.loading {
-    position: relative;
-}
+/* Style pour les éléments en cours de chargement - Can use .skeleton class */
 
-tr.loading::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.05);
-    pointer-events: none;
-}
 
 /* Style amélioré pour les mises à jour en temps réel */
 .row-updated {
-    animation: highlight 1s ease-in-out;
+    animation: highlightUpdate 1.2s ease-in-out; /* Slightly longer animation */
 }
 
-@keyframes highlight {
-    0% { background-color: rgba(var(--primary-color-rgb, 108, 92, 231), 0.2); }
+@keyframes highlightUpdate {
+    0% { background-color: rgba(var(--primary-color-rgb, 112, 87, 255), 0.25); } /* More visible highlight */
     100% { background-color: transparent; }
 }
 
-/* Amélioration des indicateurs de direction */
-.direction-label {
-    padding: 0.3rem 0.7rem;
-    border-radius: 6px;
-    font-weight: 600;
-    text-transform: uppercase;
-    font-size: 0.7rem;
-    letter-spacing: 0.5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-}
+/* Amélioration des indicateurs de direction - Covered by .direction-label styles */
 
-.direction-long {
-    background: linear-gradient(135deg, #00b894, #00cec9);
-    color: white;
-}
 
-.direction-short {
-    background: linear-gradient(135deg, #ff6b6b, #ff7675);
-    color: white;
-}
+/* Effet de survol sur les lignes du tableau - Covered by .data-table tbody tr:hover td */
 
-/* Effet de survol sur les lignes du tableau */
-.data-table tr {
-    cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
 
-.data-table tr:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    z-index: 1;
-    position: relative;
-}
-
-/* Style pour les boutons dans les lignes de tableau */
-.data-table .btn {
-    opacity: 0.8;
-    transition: opacity 0.2s ease, transform 0.2s ease;
-}
-
-.data-table tr:hover .btn {
-    opacity: 1;
-}
-
-.data-table .btn:hover {
-    transform: scale(1.05);
-} 
+/* Style pour les boutons dans les lignes de tableau - Covered by .close-position-btn and general .btn styles */
